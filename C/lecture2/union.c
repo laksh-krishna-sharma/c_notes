@@ -7,21 +7,6 @@ typedef struct student
     float precentage;
 } student;
 
-void print(student s)
-{
-    printf("%d\n",s.rno);
-    printf("%c\n",s.grade);
-    printf("%f\n",s.precentage);
-}
-void change(student s)
-{
-    s.grade ='A';
-}
-void change2(student* s)
-{
-    (*s).grade = 'A'; // method 1
-    s->precentage = 95.77; // method 2
-}
 int main()
 {
     student s1 = {29,'B',86.4};
