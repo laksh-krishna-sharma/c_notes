@@ -1,22 +1,22 @@
 #include<stdio.h>
 
-typedef struct student
+typedef union student 
 {
-    int rno;
-    char grade;
-    float precentage;
+    int rno; // 4 byte
+    char grade; // 2 byte
+    float precentage; // 4 byte
 } student;
+
+// Union same structure jisa he ho ta hai bs union space efficient ho ta hai matlab jisa is union mai sab sse zayada space int (4byte) ka hai to pure union ka size 4 byte ho ga 
+// agar struct ho ta to us ka size int (4) + char (2) + float (4) = 10 byte ho ta
 
 int main()
 {
-    student s1 = {29,'B',86.4};
-    print(s1);
-    change(s1); // it will not change by function because structures are passed by value
-    print(s1);
-    s1.grade = 'C'; // it will change the value
-    print(s1);
-    change2(&s1);
-    print(s1);
+    student s = {76,'B',86.4};
+    printf("%d\n",s.rno); // 76
+    printf("%c\n",s.grade); // L -> ASCII value of 76
+    printf("%f\n",s.precentage); // 0.000000
 
     return 0;
 }
+// NOTE ->  agar ek bar mai ek he chiz ko initialize kr ke print kre to koi error ki dikkat nahi ayagi
